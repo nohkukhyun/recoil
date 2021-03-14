@@ -7,6 +7,7 @@ interface InputProps {
   name?: string
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   onClick?: () => void
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
   style?: any
 }
 
@@ -14,6 +15,7 @@ const Input: React.FC<InputProps> = ({
   type,
   placeholder,
   onChange,
+  onKeyDown,
   name,
   style,
 }: InputProps) => {
@@ -24,6 +26,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         name={name}
         onChange={onChange}
+        onKeyDown={onKeyDown}
         style={style}
       ></e.InputWrapper>
     </>

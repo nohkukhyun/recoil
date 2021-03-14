@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import TodoList from '../../components/todoList/TodoList'
@@ -13,6 +13,12 @@ const Todo: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setInputValue(value)
+  }
+
+  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleTodoAdd()
+    }
   }
 
   const handleTodoAdd = () => {
@@ -38,6 +44,7 @@ const Todo: React.FC = () => {
           placeholder={'todo..'}
           style={{ width: '80%' }}
           onChange={handleChange}
+          onKeyDown={handleEnter}
         />
         <Button theme={'primary'} onClick={handleTodoAdd}>
           add
