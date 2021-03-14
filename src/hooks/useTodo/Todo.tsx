@@ -4,11 +4,12 @@ import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import TodoList from '../../components/todoList/TodoList'
 import { e } from './todo.emotion'
-import { todoListState } from './todo.recoil'
+import { todoListFilterState, todoListState } from './todo.recoil'
 
 const Todo: React.FC = () => {
   const [inputValue, setInputValue] = useState('')
   const setTodoList = useSetRecoilState(todoListState)
+  const setFilterTodoList = useSetRecoilState(todoListFilterState)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -19,6 +20,11 @@ const Todo: React.FC = () => {
     if (e.key === 'Enter') {
       handleTodoAdd()
     }
+  }
+
+  const handleFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value
+    setFilterTodoList(`${value}`)
   }
 
   const handleTodoAdd = () => {
@@ -33,6 +39,7 @@ const Todo: React.FC = () => {
         },
       ]
     })
+    setInputValue('')
   }
 
   return (
@@ -45,10 +52,16 @@ const Todo: React.FC = () => {
           style={{ width: '80%' }}
           onChange={handleChange}
           onKeyDown={handleEnter}
+          value={inputValue}
         />
-        <Button theme={'primary'} onClick={handleTodoAdd}>
+        <Button theme={'Primary'} onClick={handleTodoAdd}>
           add
         </Button>
+        <select onChange={handleFilter}>
+          <option value="all">SHOW ALL</option>
+          <option value="completed">COMPLETED!</option>
+          <option value="not">NOT YET!</option>
+        </select>
       </e.TodoInputWrapper>
       <e.TodoListWrapper>
         <TodoList />

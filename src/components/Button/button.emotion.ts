@@ -13,8 +13,9 @@ const ButtonWrapper = styled('button')`
   padding: 10px 20px;
   display: block;
   margin: 10px 0;
-  ${({ theme }) => theme === 'primary' && PrimaryTheme}
+  ${({ theme }) => theme === 'Primary' && PrimaryTheme}
   ${({ theme }) => theme === 'mint' && MintTheme}
+  outline:none
 `
 
 const PrimaryTheme = css`
@@ -25,8 +26,8 @@ const PrimaryTheme = css`
 
 const MintTheme = css`
   background-color: #fff;
-  border: 1px solid #80ffdb;
-  color: #80ffdb;
+  border: 1px solid #025955;
+  color: #025955;
 `
 
 export const e = {

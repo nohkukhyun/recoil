@@ -9,6 +9,7 @@ interface InputProps {
   onClick?: () => void
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
   style?: any
+  value?: string
 }
 
 const Input: React.FC<InputProps> = ({
@@ -18,6 +19,7 @@ const Input: React.FC<InputProps> = ({
   onKeyDown,
   name,
   style,
+  value,
 }: InputProps) => {
   return (
     <>
@@ -28,6 +30,7 @@ const Input: React.FC<InputProps> = ({
         onChange={onChange}
         onKeyDown={onKeyDown}
         style={style}
+        value={value}
       ></e.InputWrapper>
     </>
   )

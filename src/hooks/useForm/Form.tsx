@@ -14,13 +14,10 @@ const FormWrapper = styled('div')`
 `
 
 const Form: React.FC = () => {
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    console.log('click')
-  }
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {}
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
-    console.log(value)
   }
 
   return (
