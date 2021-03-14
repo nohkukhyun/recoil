@@ -1,6 +1,10 @@
 import styled from '@emotion/styled'
 
-export const InputWrapper = styled('input')`
+interface InputTypes {
+  style
+}
+
+export const InputWrapper = styled('input')<InputTypes>`
   border-radius: 10px;
   background-color: #fff;
   appearance: none;
@@ -8,4 +12,5 @@ export const InputWrapper = styled('input')`
   padding: 10px;
   display: block;
   margin: 10px 0;
+  ${({ style }) => style}
 `

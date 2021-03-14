@@ -10,7 +10,7 @@ const ButtonWrapper = styled('button')`
   background-color: #fff;
   appearance: none;
   border: 1px solid #777;
-  padding: 10px;
+  padding: 10px 20px;
   display: block;
   margin: 10px 0;
   ${({ theme }) => theme === 'primary' && PrimaryTheme}

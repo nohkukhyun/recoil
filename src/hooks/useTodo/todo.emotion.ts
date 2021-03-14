@@ -18,7 +18,16 @@ const TodoInputWrapper = styled('div')`
   align-items: center;
 `
 
+const TodoListWrapper = styled('div')`
+  margin-top: 15px;
+  border-top: 1px solid #999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
 export const e = {
   TodoWrapper,
   TodoInputWrapper,
+  TodoListWrapper,
 }

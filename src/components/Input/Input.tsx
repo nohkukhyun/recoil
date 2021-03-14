@@ -7,6 +7,7 @@ interface InputProps {
   name?: string
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   onClick?: () => void
+  style?: any
 }
 
 const Input: React.FC<InputProps> = ({
@@ -14,6 +15,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   onChange,
   name,
+  style,
 }: InputProps) => {
   return (
     <>
@@ -22,6 +24,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         name={name}
         onChange={onChange}
+        style={style}
       ></e.InputWrapper>
     </>
   )
