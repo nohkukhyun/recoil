@@ -15,7 +15,7 @@ const ButtonWrapper = styled('button')`
   margin: 10px 0;
   ${({ theme }) => theme === 'Primary' && PrimaryTheme}
   ${({ theme }) => theme === 'mint' && MintTheme}
-  outline:none
+  outline:none;
 `
 
 const PrimaryTheme = css`
