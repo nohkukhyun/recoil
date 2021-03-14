@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import { useSetRecoilState } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import TodoList from '../../components/todoList/TodoList'
 import { e } from './todo.emotion'
-import { todoListFilterState, todoListState } from './todo.recoil'
+import { todoListFilterState, todoListState, todoUtils } from './todo.recoil'
 
 const Todo: React.FC = () => {
   const [inputValue, setInputValue] = useState('')
   const setTodoList = useSetRecoilState(todoListState)
   const setFilterTodoList = useSetRecoilState(todoListFilterState)
+  const { todoTotal, todoRemind } = useRecoilValue(todoUtils)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -44,12 +45,17 @@ const Todo: React.FC = () => {
 
   return (
     <e.TodoWrapper>
-      <h3>Todo</h3>
+      <e.TodoInputWrapper>
+        <h3>Todo</h3>
+        <p
+          style={{ fontSize: '11px', color: '#999' }}
+        >{`${todoRemind}/${todoTotal}`}</p>
+      </e.TodoInputWrapper>
       <e.TodoInputWrapper>
         <Input
           type="text"
           placeholder={'todo..'}
-          style={{ width: '80%' }}
+          style={{ width: '55%' }}
           onChange={handleChange}
           onKeyDown={handleEnter}
           value={inputValue}

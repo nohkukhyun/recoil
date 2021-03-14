@@ -10,6 +10,7 @@ const TodoWrapper = styled('div')`
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
+  overflow: scroll;
 `
 
 const TodoInputWrapper = styled('div')`

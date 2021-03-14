@@ -29,3 +29,17 @@ export const filterTodoState = selector({
     }
   },
 })
+
+export const todoUtils = selector({
+  key: 'todoUtils',
+  get: ({ get }) => {
+    const todoList = get(todoListState)
+    const todoTotal = todoList.length
+    const todoRemind = todoList.filter((data) => !data.todoCompleted).length
+
+    return {
+      todoTotal,
+      todoRemind,
+    }
+  },
+})
